@@ -1,0 +1,12 @@
+{
+  "name": "mtgruling-com",
+  "version": "0.1.0",
+  "private": true,
+  "description": "mtgruling.com — community-supported MTG rulings",
+  "scripts": {
+    "build": "bash build.sh"
+  },
+  "devDependencies": {
+    "@babel/standalone": "^7.24.0"
+  }
+}

@@ -1,0 +1,24 @@
+// icons.jsx — tiny stroke-based icons. Inline SVG, currentColor.
+
+const I = {
+  Search: (p) => (<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" {...p}><circle cx="7" cy="7" r="4.5"/><path d="m13.5 13.5-3-3"/></svg>),
+  Up: (p) => (<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" {...p}><path d="M3.5 9.5 8 5l4.5 4.5"/></svg>),
+  Down: (p) => (<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" {...p}><path d="M3.5 6.5 8 11l4.5-4.5"/></svg>),
+  Comment: (p) => (<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...p}><path d="M14 8.5c0 2.5-2.7 4.5-6 4.5-.7 0-1.4-.1-2.1-.3L3 14l.7-2.4C2.7 10.7 2 9.7 2 8.5 2 6 4.7 4 8 4s6 2 6 4.5Z"/></svg>),
+  Share: (p) => (<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...p}><circle cx="4" cy="8" r="1.6"/><circle cx="12" cy="4" r="1.6"/><circle cx="12" cy="12" r="1.6"/><path d="m5.4 7.2 5.2-2.4M5.4 8.8l5.2 2.4"/></svg>),
+  Cite: (p) => (<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...p}><path d="M3 5.5C3 4 4 3 5.5 3H7v3H5.5c-.5 0-1 .5-1 1V8H3V5.5Zm6 0C9 4 10 3 11.5 3H13v3h-1.5c-.5 0-1 .5-1 1V8H9V5.5Z"/><path d="M3 13V9.5h4V13H3Zm6 0V9.5h4V13H9Z"/></svg>),
+  Reddit: (p) => (<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...p}><circle cx="8" cy="9" r="5.5"/><circle cx="6" cy="9" r=".7" fill="currentColor"/><circle cx="10" cy="9" r=".7" fill="currentColor"/><path d="M5.5 11c.7.6 1.5.9 2.5.9s1.8-.3 2.5-.9"/><circle cx="13" cy="6" r="1.2"/><path d="M11.8 5.4 9.5 3.2 8 4"/></svg>),
+  Discord: (p) => (<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" {...p}><path d="M3 12.5c1 .5 2 .8 3 .9l.6-1c-.7-.2-1.3-.5-1.8-.8M13 12.5c-1 .5-2 .8-3 .9l-.6-1c.7-.2 1.3-.5 1.8-.8"/><path d="M4 11.5C2.5 9 2.5 6 4 4c1-.6 2-.9 3-1l.4.8M12 11.5c1.5-2.5 1.5-5.5 0-7.5-1-.6-2-.9-3-1L8.6 3.8"/><circle cx="6.3" cy="8" r=".8" fill="currentColor"/><circle cx="9.7" cy="8" r=".8" fill="currentColor"/></svg>),
+  Edit: (p) => (<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...p}><path d="M11 2.5 13.5 5l-7.5 7.5L3 13l.5-3L11 2.5Z"/></svg>),
+  History: (p) => (<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...p}><path d="M2 8a6 6 0 1 0 1.8-4.3M2 2.5V5h2.5"/><path d="M8 5v3l2 1.5"/></svg>),
+  Plus: (p) => (<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" {...p}><path d="M8 3v10M3 8h10"/></svg>),
+  Heart: (p) => (<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...p}><path d="M8 13.5s-5-3-5-7a2.7 2.7 0 0 1 5-1.4A2.7 2.7 0 0 1 13 6.5c0 4-5 7-5 7Z"/></svg>),
+  Zap: (p) => (<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" stroke="currentColor" strokeWidth="1" strokeLinejoin="round" {...p}><path d="M9 1.5 3 9h4l-1 5.5L13 7H8.5L9 1.5Z"/></svg>),
+  X: (p) => (<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" {...p}><path d="m4 4 8 8M12 4l-8 8"/></svg>),
+  Sponsor: (p) => (<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...p}><path d="M2.5 6.5h11M2.5 9.5h11"/><rect x="2" y="3.5" width="12" height="9" rx="1.5"/></svg>),
+  Check: (p) => (<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...p}><path d="m3 8.5 3.5 3.5L13 5"/></svg>),
+  Caret: (p) => (<svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor" {...p}><path d="M2 4l3 3 3-3z"/></svg>),
+  Bell: (p) => (<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...p}><path d="M8 2v1.2M3.5 13c-.5 0-.8-.5-.5-1l1-1.4V7.5a4 4 0 1 1 8 0V10.6l1 1.4c.3.5 0 1-.5 1H3.5Z"/><path d="M6 13.5c.2.9 1 1.5 2 1.5s1.8-.6 2-1.5"/></svg>),
+};
+
+window.I = I;

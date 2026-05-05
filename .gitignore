@@ -1,0 +1,11 @@
+# Generated build output — rebuilt from .jsx sources by build.sh
+bundle.js
+
+# Dependencies
+node_modules/
+
+# Mac noise
+.DS_Store
+
+# Editor / Cowork local config
+.claude/

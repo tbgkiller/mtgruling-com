@@ -1,0 +1,6 @@
+# Netlify build configuration for mtgruling.com
+# Auto-deploys on every push to main.
+
+[build]
+  command = "bash build.sh"
+  publish = "."
