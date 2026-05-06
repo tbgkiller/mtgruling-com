@@ -1,24 +1,17 @@
-// app.jsx — top-level shell. Routes between SERP and ruling page, owns
-// global state (theme, density, accent, card frame, toasts, modals).
+// app.jsx — top-level shell. Renders the ruling page, owns global state
+// (theme, density, accent, card frame, toasts, modals).
 
 const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   "dark": false,
   "density": "regular",
   "cardFrame": "framed",
-  "accent": "#9b1c1c",
-  "showSerp": true
+  "accent": "#9b1c1c"
 }/*EDITMODE-END*/;
 
 function App() {
   const [t, setTweak] = window.useTweaks(TWEAK_DEFAULTS);
-  const [view, setView] = React.useState(t.showSerp ? 'serp' : 'ruling');
   const [createOpen, setCreateOpen] = React.useState(false);
   const [toast, setToast] = React.useState(null);
-
-  // when tweak toggles, reset view
-  React.useEffect(() => {
-    setView(t.showSerp ? 'serp' : 'ruling');
-  }, [t.showSerp]);
 
   const showToast = (text) => {
     setToast(text);
@@ -51,17 +44,12 @@ function App() {
 
   return (
     <div className="app-shell">
-      {view === 'serp' ? (
-        <SerpView onPickResult={() => setView('ruling')} setTweak={setTweak} />
-      ) : (
-        <RulingView
-          ruling={ruling}
-          frameStyle={t.cardFrame}
-          onBackToSerp={() => setView('serp')}
-          onCreate={() => setCreateOpen(true)}
-          showToast={showToast}
-        />
-      )}
+      <RulingView
+        ruling={ruling}
+        frameStyle={t.cardFrame}
+        onCreate={() => setCreateOpen(true)}
+        showToast={showToast}
+      />
 
       {createOpen && (
         <window.CreateRulingModal
@@ -102,31 +90,14 @@ function App() {
           onChange={(v) => setTweak('cardFrame', v)} />
 
         <window.TweakSection label="Demo" />
-        <window.TweakToggle label="Show search entry" value={t.showSerp} onChange={(v) => setTweak('showSerp', v)} />
         <window.TweakButton label="Open create-ruling flow" onClick={() => setCreateOpen(true)} />
       </window.TweaksPanel>
     </div>
   );
 }
 
-// ── SERP view ─────────────────────────────────────────────────────────────
-function SerpView({ onPickResult, setTweak }) {
-  return (
-    <>
-      <div style={{
-        position: 'fixed', top: 12, right: 12, zIndex: 60,
-        fontSize: 11, color: 'var(--ink-3)', background: 'var(--bg-elev)',
-        border: '1px solid var(--rule)', borderRadius: 999, padding: '4px 10px',
-      }}>
-        DEMO: search-results landing
-      </div>
-      <window.SerpPage onPickResult={onPickResult} />
-    </>
-  );
-}
-
 // ── Ruling view (full nav + footer) ───────────────────────────────────────
-function RulingView({ ruling, frameStyle, onBackToSerp, onCreate, showToast }) {
+function RulingView({ ruling, frameStyle, onCreate, showToast }) {
   const [manaShopOpen, setManaShopOpen] = React.useState(false);
   const [balance, setBalance] = React.useState(47);
   // re-export CardImage with bound frame so RulingPage doesn't need to know
@@ -142,7 +113,7 @@ function RulingView({ ruling, frameStyle, onBackToSerp, onCreate, showToast }) {
     <>
       <header className="topnav">
         <div className="container topnav-inner">
-          <div className="brand" onClick={onBackToSerp} title="Back to search">
+          <div className="brand">
             <span className="brand-mark" aria-hidden="true">
               <svg viewBox="0 0 32 32" width="32" height="32">
                 <defs>
