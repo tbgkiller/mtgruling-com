@@ -2445,28 +2445,31 @@ blockquote, .pullquote, .ruling-quote {
 @media (max-width: 640px) {
   .container { padding: 0 14px; }
 
-  /* Top nav: hide secondary chrome, shrink primary */
+  /* Top nav: hide secondary chrome, give the rest more breathing room */
   .nav-links { display: none; }
-  .brand-word-main { font-size: 20px; }
+  .brand-tld { display: none; }
+  .brand-word-main { font-size: 22px; }
   .nav-search { max-width: none; }
-  .nav-search input { font-size: 13px; height: 34px; }
-  .topnav-inner { gap: 10px; height: 52px; }
+  .nav-search input { font-size: 14px; height: 38px; }
+  .topnav-inner { gap: 14px; height: 56px; }
 
   /* Collapse "File a ruling" to icon-only — text hidden via font-size,
      SVG keeps its hardcoded width/height attributes. */
   .topnav .btn.primary {
     font-size: 0;
     padding: 0;
-    width: 36px;
+    width: 38px;
     overflow: hidden;
     flex-shrink: 0;
   }
-  .topnav .btn.primary svg { width: 16px; height: 16px; }
+  .topnav .btn.primary svg { width: 18px; height: 18px; }
 
-  /* Mana balance: keep number visible, drop the "+ Get more" CTA early */
+  /* Mana balance: keep number visible & legible, drop the "+ Get more" CTA */
   .mana-balance-cta { display: none; }
   .mana-balance-divider { display: none; }
-  .mana-balance-amt { padding: 0 12px; }
+  .mana-balance-amt { padding: 0 12px; font-size: 14px; }
+  .mana-balance { height: 38px; }
+  .avatar { width: 32px; height: 32px; font-size: 13px; }
 
   /* Headlines */
   .ruling-title { font-size: 26px; line-height: 1.22; }
@@ -2494,14 +2497,13 @@ blockquote, .pullquote, .ruling-quote {
 /* Small phone (≤ 420px) — iPhone SE / mini territory */
 @media (max-width: 420px) {
   .container { padding: 0 12px; }
-  .topnav-inner { gap: 8px; }
-  .brand-word-main { font-size: 18px; }
-  .brand-tld { display: none; }
+  .topnav-inner { gap: 12px; }
+  .brand-word-main { font-size: 20px; }
   .ruling-title { font-size: 22px; }
   .modal-foot { justify-content: stretch; }
   .modal-foot .btn { flex: 1; }
 
-  /* On the smallest screens, hide the search field entirely so the right-side
-     items (file-a-ruling, mana, avatar) get all the space they need. */
-  .nav-search { display: none; }
+  /* Search stays visible — collapses to a tiny field but the icon
+     still signals it's there. */
+  .nav-search input { padding-left: 32px; padding-right: 8px; font-size: 13px; }
 }
