@@ -2422,3 +2422,66 @@ blockquote, .pullquote, .ruling-quote {
   color: var(--ink);
   line-height: 1;
 }
+
+
+/* ─── Responsive scaling (phones, phablets, tablets) ──────────────────── */
+
+/* Tablet portrait + small laptop (≤ 900px) */
+@media (max-width: 900px) {
+  .container { padding: 0 18px; }
+  .ruling-title { font-size: 32px; }
+  .topnav-inner { gap: 14px; }
+  .nav-search { max-width: 320px; }
+}
+
+/* Phablet / large phone (≤ 640px) */
+@media (max-width: 640px) {
+  .container { padding: 0 14px; }
+
+  /* Top nav: hide secondary chrome, shrink primary */
+  .nav-links { display: none; }
+  .brand-tagline { display: none; }
+  .brand-word { padding-right: 0; }
+  .brand-word-main { font-size: 20px; }
+  .nav-search { max-width: none; }
+  .nav-search input { font-size: 13px; height: 34px; }
+  .topnav-inner { gap: 10px; height: 52px; }
+  .btn { padding: 0 11px; font-size: 13px; }
+  .btn .nav-link-label { display: none; }
+
+  /* Headlines */
+  .ruling-title { font-size: 26px; line-height: 1.22; }
+  .ruling-subtitle { font-size: 15px; }
+  .ruling-slam-h { font-size: 26px; }
+
+  /* Two-col already collapses at 980px; tighten its padding */
+  .two-col { gap: 24px; padding-bottom: 48px; }
+
+  /* Modals: edge-to-edge with breathing room */
+  .modal-backdrop { padding: 12px; }
+  .modal, .modal.wide { max-width: 100%; max-height: calc(100vh - 24px); }
+  .modal-h { padding: 14px 16px; }
+  .modal-h h2 { font-size: 18px; }
+  .modal-body { padding: 16px; }
+  .modal-foot { padding: 12px 16px; gap: 8px; flex-wrap: wrap; }
+
+  /* Support section: lower vertical air */
+  .support-section { margin-top: 36px; padding: 32px 0 44px; }
+
+  /* Footer: stack to single column */
+  .footer-cols { grid-template-columns: 1fr; gap: 18px; }
+}
+
+/* Small phone (≤ 420px) — iPhone SE / mini territory */
+@media (max-width: 420px) {
+  .container { padding: 0 12px; }
+  .topnav-inner { gap: 8px; }
+  .brand-word-main { font-size: 18px; }
+  .brand-tld { display: none; }
+  .ruling-title { font-size: 22px; }
+  .modal-foot { justify-content: stretch; }
+  .modal-foot .btn { flex: 1; }
+
+  /* Avatar / mana balance — drop to icon-only */
+  .mana-balance-cta { display: none; }
+}
