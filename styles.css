@@ -147,7 +147,6 @@ button { font-family: inherit; }
   align-items: baseline;
   gap: 6px;
   position: relative;
-  padding-right: 64px;
 }
 .brand-word-main {
   font-family: 'Anton', 'Bebas Neue', sans-serif;
@@ -169,6 +168,7 @@ button { font-family: inherit; }
   text-transform: lowercase;
 }
 .brand-tagline {
+  display: none;
   position: absolute;
   right: 0;
   top: -8px;
@@ -268,6 +268,7 @@ button { font-family: inherit; }
   font-size: 12px; font-weight: 600;
   display: grid; place-items: center;
   cursor: pointer;
+  flex-shrink: 0;
 }
 
 /* ─── Page header ──────────────────────────────────────────────────────── */
@@ -2076,6 +2077,7 @@ blockquote, .pullquote, .ruling-quote {
   gap: 0;
   height: 36px;
   padding: 0;
+  flex-shrink: 0;
   border-radius: 999px;
   background: linear-gradient(180deg, #1a2858 0%, #0d1738 100%);
   border: 1px solid var(--rule-strong);
@@ -2426,6 +2428,11 @@ blockquote, .pullquote, .ruling-quote {
 
 /* ─── Responsive scaling (phones, phablets, tablets) ──────────────────── */
 
+/* Header element priority: mana-balance + avatar must always stay visible.
+   Allow nav-search and the File-a-ruling button to shrink first. */
+.nav-search { min-width: 0; }
+.topnav .btn { flex-shrink: 0; }
+
 /* Tablet portrait + small laptop (≤ 900px) */
 @media (max-width: 900px) {
   .container { padding: 0 18px; }
@@ -2440,14 +2447,26 @@ blockquote, .pullquote, .ruling-quote {
 
   /* Top nav: hide secondary chrome, shrink primary */
   .nav-links { display: none; }
-  .brand-tagline { display: none; }
-  .brand-word { padding-right: 0; }
   .brand-word-main { font-size: 20px; }
   .nav-search { max-width: none; }
   .nav-search input { font-size: 13px; height: 34px; }
   .topnav-inner { gap: 10px; height: 52px; }
-  .btn { padding: 0 11px; font-size: 13px; }
-  .btn .nav-link-label { display: none; }
+
+  /* Collapse "File a ruling" to icon-only — text hidden via font-size,
+     SVG keeps its hardcoded width/height attributes. */
+  .topnav .btn.primary {
+    font-size: 0;
+    padding: 0;
+    width: 36px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .topnav .btn.primary svg { width: 16px; height: 16px; }
+
+  /* Mana balance: keep number visible, drop the "+ Get more" CTA early */
+  .mana-balance-cta { display: none; }
+  .mana-balance-divider { display: none; }
+  .mana-balance-amt { padding: 0 12px; }
 
   /* Headlines */
   .ruling-title { font-size: 26px; line-height: 1.22; }
@@ -2482,6 +2501,7 @@ blockquote, .pullquote, .ruling-quote {
   .modal-foot { justify-content: stretch; }
   .modal-foot .btn { flex: 1; }
 
-  /* Avatar / mana balance — drop to icon-only */
-  .mana-balance-cta { display: none; }
+  /* On the smallest screens, hide the search field entirely so the right-side
+     items (file-a-ruling, mana, avatar) get all the space they need. */
+  .nav-search { display: none; }
 }
