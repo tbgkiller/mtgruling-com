@@ -55,7 +55,7 @@ function NavSearch({ onPickCard, onPickRuling }) {
       <span className="nav-search-icon"><window.I.Search /></span>
       <input
         type="text"
-        placeholder="Search cards, rulings, judges…"
+        placeholder="Search"
         value={q}
         onChange={(e) => { setQ(e.target.value); setOpen(true); setFocused(0); }}
         onFocus={() => q && setOpen(true)}
