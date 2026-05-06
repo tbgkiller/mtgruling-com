@@ -173,11 +173,6 @@ function RulingView({ ruling, frameStyle, onBackToSerp, onCreate, showToast }) {
             onPickCard={() => showToast('Card lookup coming soon')}
             onPickRuling={() => showToast('Already viewing this ruling')}
           />
-          <nav className="nav-links">
-            <span className="nav-link">Browse</span>
-            <span className="nav-link">Top sponsors</span>
-            <span className="nav-link">Judges</span>
-          </nav>
           <button className="btn primary" onClick={onCreate}>
             <window.I.Plus /> File a ruling
           </button>
